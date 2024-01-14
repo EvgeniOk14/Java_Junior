@@ -4,6 +4,7 @@ import org.example.interfaces.LoadFromFile;
 import org.example.interfaces.SaveToFile;
 
 import java.io.FileNotFoundException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,7 +134,7 @@ public class Main
         try {
             SaveToFile listOfStudentsSaveTextFormatte = new StudentSaverTextFormatte();
             listOfStudentsSaveTextFormatte.saveListOfStudents(students);
-            System.out.println("7. Сериализация студентов в файл тектового формата прошла успешно!");
+            System.out.println("7. Сериализация студентов в файл ListOfStudentsFile.txt тектового формата прошла успешно!");
             System.out.println("----------------------------------------------------------------------------------");
         }
         catch (Exception e)
@@ -148,8 +149,60 @@ public class Main
             LoadFromFile listOfStudentsTextFormatte = new StudentLoderTextFormatte();
             List<Student> studentList = listOfStudentsTextFormatte.listOfStudentsLoad();
             System.out.println("8. Чтение из файла ListOfStudentsFile.txt списка студентов в формате txt");
-            System.out.println("Список студентов из текстового формата: " + studentList.toString());
+            System.out.println("Список студентов из текстового формата txt: " + studentList.toString());
             System.out.println("----------------------------------------------------------------------------------");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        /**-----------------------------сохранение / чтение формата json------------------------------------------**/
+
+        /** сериализация класса Student в файл studentFile.json формата json **/
+        try {
+            SaveToFile saveToFileFormatJson = new JsonStudentSaver();
+            saveToFileFormatJson.saveStudent(student);
+            System.out.println("9. Сериализация объекта Student в файл studentFile.json формата json прошла успешно!");
+            System.out.println("----------------------------------------------------------------------------------");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        /** чтение класса Student из файла studentFile.json формата json **/
+        try {
+            LoadFromFile loadFromFileFromJson = new JsonStudentLoader();
+            Student studentJson = loadFromFileFromJson.studentLoad();
+            System.out.println("10. Чтение объекта Student из файла studentFile.json фармата son прошла успешно!");
+            System.out.println("имя студента: " + studentJson.getName() + "\n" +
+                    "возраст студента: " + studentJson.getAge() + "\n" +
+                    "средний балл студента: " + studentJson.getGPA());
+            System.out.println("----------------------------------------------------------------------------------");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        /** сериализация списка студентов в файл listOfStudent.json формата json **/
+        try
+            {
+                SaveToFile saveToFileListOfStdentsJson = new JsonStudentSaver();
+                saveToFileListOfStdentsJson.saveListOfStudents(students);
+                System.out.println("11. Сериализация списка студентов в файл listOfStudent.json формата json прошла успешно!");
+                System.out.println("----------------------------------------------------------------------------------");
+            }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        /** чтение списка студентов из файла listOfStudent.json формата json: **/
+        try {
+            LoadFromFile loadFromFileListOfStudentsJson = new JsonStudentLoader();
+            List<Student> studentListJson = loadFromFileListOfStudentsJson.listOfStudentsLoad();
+            System.out.println("12. Список студентов из текстового формата json:" + studentListJson);
         }
         catch (Exception e)
         {
