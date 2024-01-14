@@ -1,15 +1,16 @@
 package org.example;
 
-
 import java.io.Serializable;
 
 public class Student implements Serializable
 {
    public String name;
    public int age;
+   public transient double GPA;
 
    @Override
-   public String toString() {
+   public String toString()
+   {
       return "Student{" +
               "name='" + name + '\'' +
               ", age=" + age +
@@ -17,7 +18,7 @@ public class Student implements Serializable
               '}';
    }
 
-   public transient double GPA;
+
 
    public String getName()
    {

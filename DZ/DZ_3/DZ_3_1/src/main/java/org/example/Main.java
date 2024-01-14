@@ -202,11 +202,13 @@ public class Main
         try {
             LoadFromFile loadFromFileListOfStudentsJson = new JsonStudentLoader();
             List<Student> studentListJson = loadFromFileListOfStudentsJson.listOfStudentsLoad();
-            System.out.println("12. Список студентов из текстового формата json:" + studentListJson);
+            System.out.println("12. Список студентов из файла listOfStudent.json формата json:" + studentListJson.toString());
+            System.out.println("-------------------------------------------------------------------------------------");
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
+
     }
 }
