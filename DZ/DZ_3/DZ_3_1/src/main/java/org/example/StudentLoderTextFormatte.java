@@ -1,7 +1,6 @@
 package org.example;
 
 import org.example.interfaces.LoadFromFile;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -48,16 +47,7 @@ public class StudentLoderTextFormatte implements LoadFromFile
                 return new Student(name, age, GPA);
             }
         }
-
         return null; // Вернуть null в случае неудачи
     }
 
-//    private Student studentFromString(String line)
-//    {
-//        StringTokenizer tokenizer = new StringTokenizer(line, ",");
-//        String name = tokenizer.nextToken().trim();
-//        int age = Integer.parseInt(tokenizer.nextToken().trim());
-//        double GPA = Double.parseDouble(tokenizer.nextToken().trim());
-//        return new Student(name, age, GPA);
-//    }
 }
