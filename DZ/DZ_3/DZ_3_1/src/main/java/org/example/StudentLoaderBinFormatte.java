@@ -6,14 +6,14 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.List;
 
-public class StudentLoader implements LoadFromFile
+public class StudentLoaderBinFormatte implements LoadFromFile
 {
     @Override
     public Student studentLoad() throws Exception
     {
         try
                 (
-            FileInputStream fileInputStream = new FileInputStream("studentFile.txt");
+            FileInputStream fileInputStream = new FileInputStream("studentFile.bin");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
                 )
         {
@@ -25,7 +25,7 @@ public class StudentLoader implements LoadFromFile
     {
         try
                 (
-                        FileInputStream fileInputStream = new FileInputStream("ListOfStudentsFile.txt");
+                        FileInputStream fileInputStream = new FileInputStream("ListOfStudentsFile.bin");
                         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
                 )
         {

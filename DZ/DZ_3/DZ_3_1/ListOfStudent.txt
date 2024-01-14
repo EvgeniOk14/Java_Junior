@@ -1,0 +1,5 @@
+Name: Николай, Age: 23, GPA: 4,50
+Name: Антон, Age: 22, GPA: 5,00
+Name: Алексей, Age: 21, GPA: 4,00
+Name: Михаил, Age: 24, GPA: 4,20
+Name: Дмитрий, Age: 20, GPA: 4,30
